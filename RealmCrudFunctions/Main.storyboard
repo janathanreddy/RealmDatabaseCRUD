@@ -37,6 +37,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="rUM-40-pzr" id="vHw-di-dOM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,6 +77,10 @@
                             <constraint firstItem="lby-eG-eHW" firstAttribute="leading" secondItem="ShQ-Zf-TAL" secondAttribute="leading" id="rD6-Ko-7bb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="Datepicker" destination="lby-eG-eHW" id="u2i-t0-2Ms"/>
+                        <outlet property="Textfield" destination="NNe-nf-TSg" id="Wpy-gq-l3N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Olq-hQ-K2n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -117,6 +124,10 @@
                             <constraint firstItem="9a5-lL-ah4" firstAttribute="trailing" secondItem="oJT-9P-37z" secondAttribute="trailing" constant="20" id="xAh-8s-kFf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="DateLabel" destination="oJT-9P-37z" id="V3B-Mt-FZn"/>
+                        <outlet property="ItemLabel" destination="m7B-7q-Es2" id="QTe-qP-kWe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cj6-Nu-tt2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

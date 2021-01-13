@@ -8,6 +8,12 @@
 import UIKit
 import RealmSwift
 
+class ToDoListItem: Object {
+    @objc dynamic var item: String = ""
+    @objc dynamic var date: Date = Date()
+}
+
+
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
    
     
@@ -41,10 +47,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        // Open the screen where we can see item info and dleete
         let item = data[indexPath.row]
 
-        guard let vc = storyboard?.instantiateViewController(identifier: "ReadViewController") as? ViewViewController else {
+        guard let vc = storyboard?.instantiateViewController(identifier: "ReadViewController") as? ReadViewController else {
             return
         }
 
@@ -58,7 +63,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
 
     @IBAction func didTapAddButton() {
-        guard let vc = storyboard?.instantiateViewController(identifier: "DatePickerViewController") as? EntryViewController else {
+        guard let vc = storyboard?.instantiateViewController(identifier: "DatePickerViewController") as? DatePickerViewController else {
             return
         }
         vc.completionHandler = { [weak self] in
@@ -71,7 +76,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     func refresh() {
         data = realm.objects(ToDoListItem.self).map({ $0 })
-        table.reloadData()
+        tableView.reloadData()
     }
 
 }

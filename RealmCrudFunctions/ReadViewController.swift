@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import RealmSwift
+
 
 class ReadViewController: UIViewController {
 
     public var item: ToDoListItem?
     public var deletionHandler: (() -> Void)?
 
-    @IBOutlet var itemLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var ItemLabel: UILabel!
+    @IBOutlet var DateLabel: UILabel!
 
     private let realm = try! Realm()
 
@@ -26,8 +28,8 @@ class ReadViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        itemLabel.text = item?.item
-        dateLabel.text = Self.dateFormatter.string(from: item!.date)
+        ItemLabel.text = item?.item
+        DateLabel.text = Self.dateFormatter.string(from: item!.date)
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didTapDelete))
     }
@@ -44,7 +46,6 @@ class ReadViewController: UIViewController {
         deletionHandler?()
         navigationController?.popToRootViewController(animated: true)
     }
-
 
 
 }
